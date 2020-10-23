@@ -6,8 +6,8 @@ $resultroomEmpty = mysqli_query($connect, $queryroomEmpty);
 
 ?>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#"><i class="fas fa-home"></i> HOME</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <a class="navbar-brand text-white" href="#"><i class="fas fa-home"></i> HOME</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -15,14 +15,14 @@ $resultroomEmpty = mysqli_query($connect, $queryroomEmpty);
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item ">
-                <button typr="button" class="nav-link btn" data-toggle="modal" data-target="#insert">เพิ่มข้อมูลลูกค้า</button>
+                <button typr="button" class="nav-link btn text-white" data-toggle="modal" data-target="#insert">เพิ่มข้อมูลลูกค้า</button>
 
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">จัดการบิลลูกค้า</a>
+                <a class="nav-link btn text-white" href="#">จัดการบิลลูกค้า</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle btn text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     ดูข้อมูลหอพัก
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -39,7 +39,7 @@ $resultroomEmpty = mysqli_query($connect, $queryroomEmpty);
         <form class="form-inline my-2 my-lg-0">
 
             <h4 class="mr-sm-2"></h4>
-            <button class="btn btn-outline-danger my-2 my-sm-0" data-toggle="modal" data-target="#logout" type="button">logout</button>
+            <button class="btn btn-outline-danger my-2 my-sm-0 text-white" data-toggle="modal" data-target="#logout" type="button">logout</button>
         </form>
     </div>
 </nav>
@@ -126,7 +126,7 @@ $resultroomEmpty = mysqli_query($connect, $queryroomEmpty);
                                         <label>เบอร์โทร</label>
                                     </div>
                                     <div class="col-4">
-                                        <input type="number" class="form-control" name="phone" id="phone" placeholder="เช่น 0954784542" required>
+                                        <input type="text" class="form-control" name="phone" id="phone" placeholder="เช่น 0954784542" required>
                                         <div class="invalid-feedback">
                                             ** กรุณาใส่เบอร์โทรศัพท์ **
                                         </div>

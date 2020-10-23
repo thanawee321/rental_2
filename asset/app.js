@@ -18,7 +18,7 @@ $(document).ready(function () {
 
                     // console.log(id_member);
                     //window.location = "deleteMember.php";
-                    //window.location.reload();
+                    window.location.reload();
                 }
             });
         });
@@ -44,15 +44,15 @@ $(document).ready(function () {
         console.log(data);
         $('#update').modal('show');
        
-        $('#id_member').val(data[0]);
-        $('#id_card').val(data[1]);
-        $('#name').val(data[2]);
-        $('#surname').val(data[3]);
-        $('#roomselect').val(data[4]);
-        $('#typecar').val(data[5]);
-        $('#plate').val(data[6]);
-        $('#phone').val(data[7]);
-        $('#datestart').val(data[8]);
+        $('#id_memberu').val(data[0]);
+        $('#id_cardu').val(data[1]);
+        $('#nameu').val(data[2]);
+        $('#surnameu').val(data[3]);
+        $('#roomselectu').val(data[4]);
+        $('#typecaru').val(data[5]);
+        $('#plateu').val(data[6]);
+        $('#phoneu').val(data[7]);
+        $('#datestartu').val(data[8]);
 
     });
 

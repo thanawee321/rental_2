@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 23, 2020 at 03:36 AM
+-- Generation Time: Oct 23, 2020 at 11:33 AM
 -- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.9
+-- PHP Version: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -99,7 +99,7 @@ CREATE TABLE `member` (
   `name_member` varchar(30) NOT NULL,
   `sur_member` varchar(30) NOT NULL,
   `id_room` int(5) NOT NULL,
-  `vehicle_member` varchar(12) DEFAULT NULL,
+  `vehicle_member` varchar(15) DEFAULT NULL,
   `plate_member` varchar(10) DEFAULT NULL,
   `phone_member` varchar(10) NOT NULL,
   `fristday_member` date DEFAULT NULL
@@ -110,8 +110,8 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`id_member`, `idcard_member`, `name_member`, `sur_member`, `id_room`, `vehicle_member`, `plate_member`, `phone_member`, `fristday_member`) VALUES
-(49, '454545', '54545', '2424', 101, 'ไม่มีรถ', '', '4343', '2020-10-30'),
-(50, '454', '53453', '3', 107, 'รถมอเตอร์ไซค', 'ซข-8653', '3132', '2020-10-23');
+(55, '1245635522191', 'sdrgvsgv', 'svg', 102, 'รถยนต์', 'วย-658', '0985452125', '2020-10-23'),
+(57, '46456', '้่าเาทเท', 'เ้เอ้่เ้่', 110, 'รถยนต์', '้สน-5563', '0685431552', '2020-10-30');
 
 -- --------------------------------------------------------
 
@@ -131,16 +131,16 @@ CREATE TABLE `room` (
 --
 
 INSERT INTO `room` (`id_room`, `id_member`, `type_room`, `status_room`) VALUES
-(101, '49', 'แอร์', 'ไม่ว่าง'),
-(102, '', 'พัดลม', 'ห้องว่าง'),
+(101, '', 'แอร์', 'ห้องว่าง'),
+(102, '55', 'พัดลม', 'ไม่ว่าง'),
 (103, '', 'แอร์', 'ห้องว่าง'),
 (104, '', 'แอร์', 'ห้องว่าง'),
 (105, '', 'พัดลม', 'ห้องว่าง'),
 (106, '', 'แอร์', 'ห้องว่าง'),
-(107, '50', 'พัดลม', 'ไม่ว่าง'),
+(107, '', 'พัดลม', 'ห้องว่าง'),
 (108, '', 'แอร์', 'ห้องว่าง'),
 (109, '', 'พัดลม', 'ห้องว่าง'),
-(110, '', 'แอร์', 'ห้องว่าง'),
+(110, '57', 'แอร์', 'ไม่ว่าง'),
 (201, '', 'พัดลม', 'ห้องว่าง'),
 (202, '', 'แอร์', 'ห้องว่าง');
 
@@ -192,7 +192,7 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `id_member` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id_member` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

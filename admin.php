@@ -7,8 +7,8 @@ include('headercheckLogin.php');
 $query = "SELECT * FROM rental_2.member";
 $result = mysqli_query($connect,$query);
 
-$queryroomEmpty = "SELECT * FROM rental_2.room WHERE status_room='ห้องว่าง'";
-$resultroomEmpty = mysqli_query($connect, $queryroomEmpty);
+$queryroomEmpty2 = "SELECT * FROM rental_2.room WHERE status_room='ห้องว่าง'";
+$resultroomEmpty2 = mysqli_query($connect, $queryroomEmpty2);
 
 ?>
 <html>
@@ -23,7 +23,7 @@ $resultroomEmpty = mysqli_query($connect, $queryroomEmpty);
 
     <div class="container pt-3">
         <h1>รายชื่อสมาชิก</h1>
-    <table class="table table-hover" id="viewdata">
+    <table class="table table-hover text-center" id="viewdata">
   <thead>
     <tr>
       <th scope="col">ลำดับ</th>
@@ -104,12 +104,12 @@ $resultroomEmpty = mysqli_query($connect, $queryroomEmpty);
                         <form method="post" action="updateMember.php">
                             <div class="was-validated">
                                 <div class="row justify-content-center align-items-center">
-                                    <input type="text" id="id_member" readonly>
+                                    <input type="hidden" id="id_memberu" readonly>
                                     <div class="col-2">
                                         <label>รหัสบัตรประชาชน</label>
                                     </div>
                                     <div class="col-4">
-                                        <input type="number" class="form-control" name="id_card" id="id_card" required>
+                                        <input type="number" class="form-control" name="id_card" id="id_cardu" required>
                                         <div class="invalid-feedback">
                                             **บัตรประจำตัวประชาชน**
                                         </div>
@@ -121,7 +121,7 @@ $resultroomEmpty = mysqli_query($connect, $queryroomEmpty);
                                         <label>ชื่อสมาชิก</label>
                                     </div>
                                     <div class="col-4">
-                                        <input type="text" class="form-control" name="name" id="name"  required>
+                                        <input type="text" class="form-control" name="name" id="nameu"  required>
                                         <div class="invalid-feedback">
                                             ** กรุณาใส่ชื่อ **
                                         </div>
@@ -135,7 +135,7 @@ $resultroomEmpty = mysqli_query($connect, $queryroomEmpty);
                                         <label>นามสกุล</label>
                                     </div>
                                     <div class="col-4">
-                                        <input type="text" class="form-control" name="surname" id="surname"  required>
+                                        <input type="text" class="form-control" name="surname" id="surnameu"  required>
                                         <div class="invalid-feedback">
                                             ** กรุณาใส่นามสกุล **
                                         </div>
@@ -149,7 +149,7 @@ $resultroomEmpty = mysqli_query($connect, $queryroomEmpty);
                                         <label>เบอร์โทร</label>
                                     </div>
                                     <div class="col-4">
-                                        <input type="number" class="form-control" name="phone" id="phone"  required>
+                                        <input type="text" class="form-control" name="phone" id="phoneu"  required>
                                         <div class="invalid-feedback">
                                             ** กรุณาใส่เบอร์โทรศัพท์ **
                                         </div>
@@ -163,14 +163,13 @@ $resultroomEmpty = mysqli_query($connect, $queryroomEmpty);
                                     <label>เลขห้อง</label>
                                 </div>
                                 <div class="col-4">
-                                    <select class="form-control" name="roomselect" id="roomselect" require>
-                                        <?php while ($row = mysqli_fetch_array($resultroomEmpty)) { ?>
-                                            <option value="<?php echo $row['id_room']; ?>"><?php echo $row['id_room']; ?> | <?php echo $row['type_room']; ?></option>
-                                        <?php } ?>
+                                    <select class="form-control" name="roomselectu" id="roomselectu">
+                                  <?php while($row = mysqli_fetch_array($resultroomEmpty2)) { ?>
+
+                                    <option value="<?php echo $row['id_room'];?>"><?php echo $row['id_room'];?> | <?php echo $row['type_room'];?></option>
+                                  <?php } ?>
                                     </select>
-                                    <div class="invalid-feedback">
-                                        ** กรุณาเลขห้อง **
-                                    </div>
+                                  
                                 </div>
                             </div>
 
@@ -181,7 +180,7 @@ $resultroomEmpty = mysqli_query($connect, $queryroomEmpty);
                                     <label>ประเภทรถ</label>
                                 </div>
                                 <div class="col-4">
-                                    <select class="form-control" name="typecar" id="typecar">
+                                    <select class="form-control" name="typecar" id="typecaru">
 
                                         <option value="ไม่มีรถ"> - </option>
                                         <option value="รถมอเตอร์ไซค์">รถมอเตอร์ไซค์</option>
@@ -200,7 +199,7 @@ $resultroomEmpty = mysqli_query($connect, $queryroomEmpty);
                                     <label>ป้ายทะเบียนรถ</label>
                                 </div>
                                 <div class="col-4">
-                                    <input type="text" class="form-control" name="plate" id="plate"  >
+                                    <input type="text" class="form-control" name="plate" id="plateu"  >
                                     <div class="invalid-feedback">
                                         ** กรุณาใส่นามสกุล **
                                     </div>
@@ -213,7 +212,7 @@ $resultroomEmpty = mysqli_query($connect, $queryroomEmpty);
                                     <label>วันที่แรกเข้า</label>
                                 </div>
                                 <div class="col-4">
-                                    <input type="date" class="form-control" name="datestart" id="datestart"  required>
+                                    <input type="date" class="form-control" name="datestart" id="datestartu"  required>
                                     <div class="invalid-feedback">
                                         ** กรุณาใส่นามสกุล **
                                     </div>
