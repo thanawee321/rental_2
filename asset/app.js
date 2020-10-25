@@ -29,9 +29,9 @@ $(document).ready(function () {
     $('.btnupdate').click(function () {
 
         var id_member = $(this).attr('id');
-        var oldroom =$(this).attr('oldroom');
-        
-        
+        var oldroom = $(this).attr('oldroom');
+
+
         console.log("TEST การกดซะหน่อย");
         console.log(id_member);
         console.log(oldroom);
@@ -43,7 +43,7 @@ $(document).ready(function () {
 
         console.log(data);
         $('#update').modal('show');
-       
+
         $('#id_memberu').val(data[0]);
         $('#id_cardu').val(data[1]);
         $('#nameu').val(data[2]);
@@ -56,6 +56,20 @@ $(document).ready(function () {
 
     });
 
+    $('.btndeleteBill').click(function () {
+
+        console.log("ทดสอบการกดปุ่มนะคร้าบ");
+        var id_bill = $(this).attr('id');
+    
+        $('.cfdeleteBill').click(function(){
+
+            window.location.replace = "deleteBill.php?id"+id_bill;
+
+
+        });
+
+
+    });
 
 
 
@@ -65,4 +79,7 @@ $(document).ready(function () {
 
 
     $('#viewdata').DataTable();
+    $('#viewRoom').DataTable();
+    $('#viewChash').DataTable();
+
 });

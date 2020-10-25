@@ -55,7 +55,7 @@ $resultroomEmpty2 = mysqli_query($connect, $queryroomEmpty2);
 
       <td><button type="button" class="btn btn-danger btndelete" id="<?php echo $row['id_member'];?>" numberroom="<?php echo $row['id_room'];?>" data-toggle="modal" data-target="#delete"><i class="fas fa-trash"></i></button></td>
       <td><button type="button" class="btn btn-warning btnupdate" id="<?php echo $row['id_member'];?>" oldroom="<?php echo $row['id_room'];?>"><i class="far fa-edit"></i></button></td>
-      <td><a href="billReport.php" class="btn btn-info" id="<?php echo $row['id_member'];?>"><i class="fas fa-file-invoice"></i></a></td>
+      <td><a href="billReport.php?id=<?php echo $row['id_member'];?> &name=<?php echo $row['name_member'].' '.$row['sur_member'];?>" class="btn btn-info"><i class="fas fa-file-invoice"></i></a></td>
     </tr>
       <?php } ?>
   </tbody>

@@ -4,6 +4,13 @@ require 'connect.php';
 $queryroomEmpty = "SELECT * FROM rental_2.room WHERE status_room='ห้องว่าง'";
 $resultroomEmpty = mysqli_query($connect, $queryroomEmpty);
 
+
+$queryroomEmpty2 = "SELECT * FROM rental_2.room";
+$resultroomEmpty2 = mysqli_query($connect, $queryroomEmpty2);
+
+$queryBill = "SELECT bill.id_bill,member.name_member,member.sur_member,bill.result_bill,bill.status_bill,bill.date_bill FROM  member INNER JOIN bill ON member.id_member=bill.id_member";
+$resultBill = Mysqli_query($connect,$queryBill);
+
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
@@ -19,15 +26,15 @@ $resultroomEmpty = mysqli_query($connect, $queryroomEmpty);
 
             </li>
             <li class="nav-item">
-                <a class="nav-link btn text-white" href="#">จัดการบิลลูกค้า</a>
+                <!--gdkmdffmfmfm;fawd-->
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle btn text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     ดูข้อมูลหอพัก
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">ดูห้องว่าง</a>
-                    <a class="dropdown-item" href="#">ดูการชำระเงิน</a>
+                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#roomEmpty">ดูห้องว่าง</a>
+                    <a class="dropdown-item"href="#"  data-toggle="modal" data-target="#bill" >ดูการชำระเงิน</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">เพิ่มห้อง</a>
                 </div>
@@ -177,7 +184,7 @@ $resultroomEmpty = mysqli_query($connect, $queryroomEmpty);
                                     <label>ป้ายทะเบียนรถ</label>
                                 </div>
                                 <div class="col-4">
-                                    <input type="text" class="form-control" name="plate" id="plate" placeholder="เช่น กด-6969" >
+                                    <input type="text" class="form-control" name="plate" id="plate" placeholder="เช่น กด-6969">
                                     <div class="invalid-feedback">
                                         ** กรุณาใส่นามสกุล **
                                     </div>
@@ -207,3 +214,87 @@ $resultroomEmpty = mysqli_query($connect, $queryroomEmpty);
     </div>
 </div>
 </form>
+
+<!-- Modal roomEmpty-->
+<div class="modal fade" id="roomEmpty" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">ห้องว่าง</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-hover" id="viewRoom">
+                    <thead>
+                        <tr>
+                           <th>เลขห้อง</th>
+                           <th>ประเภทห้อง</th>
+                           <th>สถานะห้อง</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php while($row = mysqli_fetch_array($resultroomEmpty2)){ ?>
+                        <tr>
+                           <td><?php echo $row['id_room'];?></td>
+                           <td><?php echo $row['type_room'];?></td>
+                           <td><?php echo $row['status_room'];?></td>
+                        </tr>
+                        <?php }?>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal Bill-->
+<div class="modal fade" id="bill" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">การชำระ</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-hover" id="viewChash">
+                    <thead>
+                        <tr>
+                           <th>รหัสบิล</th>
+                           <th>ชื่อลูกค้า</th>
+                           <th>นามสกุล</th>
+                           <th>มูลค่าที่ต้องชำระ</th>
+                           <th>สถานะการจ่าย</th>
+                           <th>วันที่</th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php while($row = mysqli_fetch_array($resultBill)){ ?>
+                        <tr>
+                           <td><?php echo $row['id_bill'];?></td>
+                           <td><?php echo $row['name_member'];?></td>
+                           <td><?php echo $row['sur_member'];?></td>
+                           <td><?php echo $row['result_bill'];?></td>
+                           <td><?php echo $row['status_bill'];?></td>
+                           <td><?php echo $row['date_bill'];?></td>
+                        </tr>
+                        <?php }?>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
+                
+            </div>
+        </div>
+    </div>
+</div>
